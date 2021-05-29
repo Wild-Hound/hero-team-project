@@ -5,20 +5,31 @@ import ProductPage from "./Pages/ProductPage/ProductPage";
 import fakeData from "./fakeData.json";
 
 import Headers from "./Pages/FrontPage/Headers/Headers";
+import ProductDetails from "./Pages/ProductPage/ProductDetails";
+import ProductListing from "./Pages/ProductPage/ProductListing";
 
 function App() {
-  console.log(fakeData);
+  // console.log(fakeData);
   return (
     <div className="App">
       <Router>
       <Headers />
         <Switch>
-          <Route exact path="/" >
+          {/* <Route exact path="/" >
             <FrontPage />
-          </Route>
-          <Route path="/product">
+          </Route> */}
+          {/* <Route path="/product">
             <ProductPage />
+          </Route> */}
+          <Route path="/" >
+            <ProductListing></ProductListing>
+            </Route>
+          <Route path="/product/:productId" >
+          
+          <ProductDetails></ProductDetails>
           </Route>
+          <Route>404 Not Found!</Route>
+          
         </Switch>
       </Router>
     </div>

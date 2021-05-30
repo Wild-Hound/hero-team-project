@@ -4,8 +4,6 @@ import ProductDetails from "../ProductPage/ProductDetails";
 import styles from "./FrontPage.module.scss";
 
 function FrontPage() {
-  return <div className={styles.PageWrapper}>Edited</div>;
-
   return (
     <div className="row d-flex align-items-center">
       <ProductDetails></ProductDetails>

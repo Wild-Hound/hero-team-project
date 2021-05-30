@@ -2,7 +2,7 @@ import React from "react";
 import Contact from "../Contact/Contact";
 import ProductDetails from "../ProductPage/ProductDetails";
 import styles from "./FrontPage.module.scss";
-
+import { Link } from "react-router-dom";
 function FrontPage() {
   return (
     <div className="row d-flex align-items-center">

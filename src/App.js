@@ -13,23 +13,18 @@ function App() {
   return (
     <div className="App">
       <Router>
-      <Headers />
         <Switch>
-          {/* <Route exact path="/" >
-            <FrontPage />
-          </Route> */}
-          {/* <Route path="/product">
+          <Route path="/product">
             <ProductPage />
-          </Route> */}
-          <Route path="/" >
+          </Route>
+          <Route exact path="/">
+            <Headers />
             <ProductListing></ProductListing>
-            </Route>
-          <Route path="/product/:productId" >
-          
-          <ProductDetails></ProductDetails>
+          </Route>
+          <Route path="/product/:productId">
+            <ProductDetails></ProductDetails>
           </Route>
           <Route>404 Not Found!</Route>
-          
         </Switch>
       </Router>
     </div>

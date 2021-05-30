@@ -39,6 +39,7 @@ function ProductPage() {
   return (
     <div className="row  container productDetail">
       <div className="row  detail ">
+        
         <div className=" img-sec col-md-6 col-lg-5 col-sm-12">
           <div className="back">
             <Link to="/" className="backto">

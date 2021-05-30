@@ -27,9 +27,4 @@ const ProductComponent = () => {
   });
   return <>{renderList}</>;
 };
-{/* <div>
-<h1> Product component</h1>
-</div>
-    );
-}; */}
 export default ProductComponent;

@@ -9,16 +9,21 @@ import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 function ProductPage() {
   let history = useHistory();
   const { id } = useParams();
   const [productInfo, setProductInfo] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setProductInfo(data));
+      .then((data) => {
+        setProductInfo(data);
+        setLoading(false);
+      });
   }, []);
 
   let handleCart = () => {
@@ -36,10 +41,9 @@ function ProductPage() {
     }, 3000);
   };
 
-  return (
-    <div className="row  container productDetail">
-      <div className="row  detail ">
-        
+  function productInfojsx() {
+    return (
+      <>
         <div className=" img-sec col-md-6 col-lg-5 col-sm-12">
           <div className="back">
             <Link to="/" className="backto">
@@ -72,6 +76,20 @@ function ProductPage() {
             <ShoppingCartIcon /> Add to cart{" "}
           </button>
         </div>
+      </>
+    );
+  }
+
+  return (
+    <div className="row  container productDetail">
+      <div className="row  detail ">
+        {loading ? (
+          <div className="loadingWrapper">
+            <CircularProgress />
+          </div>
+        ) : (
+          productInfojsx()
+        )}
       </div>
       <ToastContainer />
     </div>

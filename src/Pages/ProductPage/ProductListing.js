@@ -1,6 +1,7 @@
-import React, { useEffect, useCallback, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import  './ProductListing.css';
+import "./ProductListing.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../FrontPage/actions/productsActions";
@@ -16,8 +17,10 @@ const ProductListing = () => {
         console.log("Err: ", err);
       });
     dispatch(setProducts(response.data));
+    setLoading(false);
   };
 
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -25,10 +28,8 @@ const ProductListing = () => {
   return (
     <div className="row mt-5 product-con">
       <h2>Products</h2>
-     
       <div className="col-lg-12 col-md-12 mb-5">
-      <ProductComponent />
-
+        {loading ? <CircularProgress /> : <ProductComponent />}
       </div>
     </div>
   );
